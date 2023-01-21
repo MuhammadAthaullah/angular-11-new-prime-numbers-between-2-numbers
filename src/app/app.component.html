@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h4 class="text-left">Prime numbers between two numbers</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="PrimeNumbers">
+          <div class="row">
+            <div class="col-lg-12 col-12">
+              <input
+                type="text"
+                placeholder="Enter first number"
+                class="form-control mb-3"
+                formControlName="primenumberone"
+              />
+            </div>
+            <div class="col-lg-12 col-12">
+              <input
+                type="text"
+                placeholder="Enter second number"
+                class="form-control"
+                formControlName="primenumbertwo"
+              />
+            </div>
+            <div class="text-center mt-2">
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="getPrimes()"
+              >
+                Get Primes
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="alert alert-info mt-5 p-2 text-center" *ngIf="showNumbers">
+          <span class="badge-warning"
+            >Here are total numbers between number 1 and number 2</span
+          >
+        </div>
+        <div class="alert alert-primary pb-0" *ngIf="showNumbers">
+          <ul class="text-center" style="list-style-type: none;">
+            <li
+              *ngFor="let number of numbers; &quot;text-center&quot;"
+              style="display:inline-block;"
+            >
+              {{ number }},
+            </li>
+          </ul>
+        </div>
+        <div class="alert alert-info mt-5 p-2 text-center" *ngIf="showNumbers">
+          <span class="text-center">
+            Here are total prime numbers between number 1 and number 2
+          </span>
+        </div>
+        <div class="alert alert-primary pb-0" *ngIf="showNumbers">
+          <ul class="text-center" style="list-style-type: none;">
+            <li *ngFor="let num of prmnumbers" style="display:inline-block;">
+              {{ num }},
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
